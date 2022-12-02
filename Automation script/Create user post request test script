@@ -1,0 +1,27 @@
+pm.test("Status code should be 201", function () {
+    pm.response.to.have.status(201);
+});
+
+pm.test("Status code name has string called Created", function () {
+    pm.response.to.have.status("Created");
+});
+pm.test("Successful POST request", function () {
+    pm.expect(pm.response.code).to.be.oneOf([201,200, 202]);
+});
+pm.test("Data should return name as Sandra ", function () {
+pm.expect(pm.response.text()).to.include("name\":\"Sandra\"");
+});
+pm.test("Data returned should have job as QA", function () {
+    pm.expect(pm.response.text()).to.include("job\":\"QA\"");
+});
+pm.test("Verify that the response body contains id", function () {
+    pm.expect(pm.response.text()).to.include("id");
+});
+pm.test("Verify the name", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.name).to.eql("Sandra");
+});
+
+pm.test("Verify the user created time stamp is returned", function () {
+    pm.expect(pm.response.text()).to.include("createdAt");
+});
