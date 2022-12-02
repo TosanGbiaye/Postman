@@ -1,0 +1,9 @@
+HOW TO RUN POSTMAN COLLECTION USING NEWMAN AND GENERATE HTML REPORT
+Export your postman collection to a folder and save it. export your environment variable and save it in the same folder as your postman collection
+copy the directory of your folder, open command prompt type cd and paste the directory.
+Type npm install newman -g
+to confirm that newman is installed enter the command: newman -v
+Enter the command : npm install -g newman-reporter-htmlextra
+Enter the command: newman run collectionName.json -e environmentName.json (to the sure your collection is running fine)
+To generate GUI Report enter the command: newman run collectionName.json -e environmentName.json -r htmlextra 
+Example: newman run WebinaronAPITesting.postman_collection.json -e API_Test_Env.postman_environment.json -r htmlextra
